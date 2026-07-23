@@ -41,6 +41,7 @@ Want a single skill without cloning the whole repo? `npx degit donatassimkus/cla
 | [ghl](skills/ghl/) | Knowledge | GoHighLevel: account architecture, the white-label SaaS model, core modules, snapshots, and recipes. |
 | [chrome-extension](skills/chrome-extension/) | Knowledge | Ship a Chrome extension through Web Store review: Manifest V3 popup-only, icons, every store field, and the rejection reasons. |
 | [vibe-coding](skills/vibe-coding/) | Knowledge | Idea to working product fast with AI: tool selection, prompts that produce working code, MVP scoping, and AI debugging. |
+| [technical-audit](skills/technical-audit/) | Knowledge | Pre-launch website sweep: responsive overflow, broken links, meta, sitemap, launch assets, and migration URL parity. Ships two scripts. |
 
 ### Email ops
 
