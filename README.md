@@ -40,6 +40,7 @@ Want a single skill without cloning the whole repo? `npx degit donatassimkus/cla
 | [automation](skills/automation/) | Knowledge | Cross-tool automation: which tool for which job, whether to automate at all, and how to design it. |
 | [ghl](skills/ghl/) | Knowledge | GoHighLevel: account architecture, the white-label SaaS model, core modules, snapshots, and recipes. |
 | [chrome-extension](skills/chrome-extension/) | Knowledge | Ship a Chrome extension through Web Store review: Manifest V3 popup-only, icons, every store field, and the rejection reasons. |
+| [vibe-coding](skills/vibe-coding/) | Knowledge | Idea to working product fast with AI: tool selection, prompts that produce working code, MVP scoping, and AI debugging. |
 
 ### Email ops
 
