@@ -1,14 +1,14 @@
 # YouTube SEO for Claude Code
 
-**Knowledge skill.** The complete YouTube SEO method: how the search and recommendation algorithms feed each other, video keyword research, titles, thumbnails, watch-time structure, and channel architecture.
+**Knowledge skill.** Rank videos and grow a channel: titles, thumbnails, and watch-time.
 
 ## Install
 
-Copy [`INSTALL-PROMPT.md`](INSTALL-PROMPT.md) and paste it into your AI agent (Claude Code, Cursor, or similar). It installs [`SKILL.md`](SKILL.md) unchanged, asks one question about your channel goal, then packages your next video or audits your channel. No accounts, no keys.
+Copy [`INSTALL-PROMPT.md`](INSTALL-PROMPT.md) and paste it into your AI agent (Claude Code, Cursor, or similar). It installs the skill files unchanged, asks one question to calibrate, then runs the method on your own material. No accounts, no keys.
 
 ## What's here
 
 - `INSTALL-PROMPT.md`: the runbook you paste.
-- `SKILL.md`: the full method your AI installs.
+- `SKILL.md`: the router your AI installs. It loads the reference each task needs.
 
 Live preview: [donatassimkus.com/ai-skills/youtube-seo](https://donatassimkus.com/ai-skills/youtube-seo)

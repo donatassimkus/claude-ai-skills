@@ -1,14 +1,14 @@
 # Automation for Claude Code
 
-**Knowledge skill.** Cross-tool automation architecture: which tool for which job, whether to automate a task at all, and how to design workflows that are deterministic, debuggable, and error-handled. Covers n8n, Make, GoHighLevel, and an AI agent calling APIs.
+**Knowledge skill.** Cross-tool architecture: which tool for which job, and how to wire a stack that runs itself.
 
 ## Install
 
-Copy [`INSTALL-PROMPT.md`](INSTALL-PROMPT.md) and paste it into your AI agent (Claude Code, Cursor, or similar). It installs [`SKILL.md`](SKILL.md) unchanged, asks one question about your primary automation platform, then designs, reviews, or ROI-checks one of your own automations. No accounts, no keys.
+Copy [`INSTALL-PROMPT.md`](INSTALL-PROMPT.md) and paste it into your AI agent (Claude Code, Cursor, or similar). It installs the skill files unchanged, asks one question to calibrate, then runs the method on your own material. No accounts, no keys.
 
 ## What's here
 
 - `INSTALL-PROMPT.md`: the runbook you paste.
-- `SKILL.md`: the full method your AI installs.
+- `SKILL.md`: the router your AI installs. It loads the reference each task needs.
 
 Live preview: [donatassimkus.com/ai-skills/automation](https://donatassimkus.com/ai-skills/automation)
