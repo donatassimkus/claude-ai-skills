@@ -1,11 +1,13 @@
-# AI Skills for Claude Code
+# Growth Marketing Skills for Claude Code
 
-Copy-paste skills that make your AI coding agent good at real marketing and ops work: SEO, automation, CRM, and inbox triage. Each skill is a single prompt you paste into **Claude Code, Cursor, or any AI agent**. The agent reads it, sets the skill up on your own machine and accounts, and applies it from then on. Nothing to sign up for.
+Copy-paste skills that turn your AI agent into a growth marketer: SEO, CRM, marketing automation, inbox triage, and the build-and-QA work that ships the pages. Each skill is a single prompt you paste into **Claude Code, Cursor, or any AI agent**. The agent reads it, sets the skill up on your own machine and accounts, and applies it from then on. Nothing to sign up for, no keys, no accounts.
+
+These are the working methods behind ten years of growth marketing, written down as files an agent can install rather than advice you have to remember.
 
 **Live catalog with full previews:** [donatassimkus.com/ai-skills](https://donatassimkus.com/ai-skills)
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![Skills](https://img.shields.io/badge/skills-8-blue.svg)
+![Skills](https://img.shields.io/badge/skills-12-blue.svg)
 ![GitHub stars](https://img.shields.io/github/stars/donatassimkus/claude-ai-skills?style=social)
 
 ## How to use a skill
@@ -42,6 +44,7 @@ Want a single skill without cloning the whole repo? `npx degit donatassimkus/cla
 | [chrome-extension](skills/chrome-extension/) | Knowledge | Ship a Chrome extension through Web Store review: Manifest V3 popup-only, icons, every store field, and the rejection reasons. |
 | [vibe-coding](skills/vibe-coding/) | Knowledge | Idea to working product fast with AI: tool selection, prompts that produce working code, MVP scoping, and AI debugging. |
 | [technical-audit](skills/technical-audit/) | Knowledge | Pre-launch website sweep: responsive overflow, broken links, meta, sitemap, launch assets, and migration URL parity. Ships two scripts. |
+| [replit-quality](skills/replit-quality/) | Knowledge | Replit QA: a pre-delivery checklist plus 16 categories of recurring bug with the root cause and fix for each. |
 
 ### Email ops
 
