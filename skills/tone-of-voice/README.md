@@ -1,6 +1,6 @@
 # Tone of Voice for Claude Code
 
-**Knowledge skill.** Turn your own writing into a reusable voice your AI matches every time.
+**Knowledge skill.** Arrives empty and teaches your AI to capture how you talk, rather than handing it someone else's voice.
 
 ## Install
 
@@ -11,5 +11,6 @@ Copy [`INSTALL-PROMPT.md`](INSTALL-PROMPT.md) and paste it into your AI agent (C
 - `INSTALL-PROMPT.md`: the runbook you paste.
 - `SKILL.md`: the router your AI installs. It loads the reference each task needs.
 - `references/`: the deeper method, loaded on demand.
+- `scripts/person-density.py`: shipped with the kit.
 
 Live preview: [donatassimkus.com/ai-skills/tone-of-voice](https://donatassimkus.com/ai-skills/tone-of-voice)

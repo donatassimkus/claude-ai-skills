@@ -7,7 +7,7 @@ These are the working methods behind ten years of growth marketing, written down
 **Live catalog with full previews:** [donatassimkus.com/ai-skills](https://donatassimkus.com/ai-skills)
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![Skills](https://img.shields.io/badge/skills-66-blue.svg)
+![Skills](https://img.shields.io/badge/skills-67-blue.svg)
 ![GitHub stars](https://img.shields.io/github/stars/donatassimkus/claude-ai-skills?style=social)
 
 ## How to use a skill
@@ -66,8 +66,9 @@ Want a single skill without cloning the whole repo? `npx degit donatassimkus/cla
 | Skill | Type | What it does |
 |---|---|---|
 | [hooks](skills/hooks/) | Knowledge | Openers that stop the scroll, with a framework to test them. |
-| [writing-audit](skills/writing-audit/) | Knowledge | Paste your copy and your AI strips out the ChatGPT tells and clichés. |
-| [tone-of-voice](skills/tone-of-voice/) | Knowledge | Turn your own writing into a reusable voice your AI matches every time. |
+| [fact-check](skills/fact-check/) | Knowledge | Every claim in your draft checked against the real source, and never a citation it made up. |
+| [humanize-strip-ai](skills/humanize-strip-ai/) | Knowledge | Two passes that take the machine out of a draft: the words first, then the shape. |
+| [tone-of-voice](skills/tone-of-voice/) | Knowledge | Arrives empty and teaches your AI to capture how you talk, rather than handing it someone else's voice. |
 | [content](skills/content/) | Knowledge | Blog, email, landing, and ad copy that sounds like you, not a template. |
 | [social-post](skills/social-post/) | Knowledge | Turn one idea into ready-to-post content, LinkedIn first. |
 | [personal-brand](skills/personal-brand/) | Knowledge | Position yourself and build a content system that compounds attention. |

@@ -1,0 +1,66 @@
+# Banned words: the single source of truth.
+#
+# Edit HERE first. If you mirror this list anywhere for readability (a style guide,
+# a pre-commit hook), update the mirror from this file, never the other way round.
+#
+# One word or phrase per line. Lines starting with # and blank lines are ignored.
+# Matched case-insensitively on word boundaries.
+#
+# Applies to first-person original output only. Verbatim third-party text
+# (testimonials, quotes, reviews) is immutable: never rewrite a quote to fit this list.
+#
+# Trimmed from 84 to 49 by removing normal English words. Keeping common words on a
+# banned list trains you to ignore the list, which costs more than the words save.
+
+# --- AI tells and LLM cliches (16) ---
+embarked
+delved
+delving
+delve
+tapestry
+treasure trove
+shed light
+deep understanding
+intricate
+resonate
+foster
+cultivate
+elucidate
+unravel
+underscores
+testament
+
+# --- Marketing hype and corporate buzzwords (33) ---
+invaluable
+relentless
+groundbreaking
+enlightening
+esteemed
+endeavour
+elevate
+offerings
+leverage
+synergy
+empower
+unleash
+unlock
+pivotal
+amplify
+seamlessly
+harness
+streamlined
+effortlessly
+cutting-edge
+spearhead
+bolster
+at the forefront
+game-changer
+best-in-class
+revolutionary
+transformative
+next-generation
+state-of-the-art
+revolutionize
+paramount
+peril
+adhere

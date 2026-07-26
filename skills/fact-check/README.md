@@ -1,6 +1,6 @@
-# Writing Audit for Claude Code
+# Fact Check for Claude Code
 
-**Knowledge skill.** Paste your copy and your AI strips out the ChatGPT tells and clichés.
+**Knowledge skill.** Every claim in your draft checked against the real source, and never a citation it made up.
 
 ## Install
 
@@ -11,4 +11,4 @@ Copy [`INSTALL-PROMPT.md`](INSTALL-PROMPT.md) and paste it into your AI agent (C
 - `INSTALL-PROMPT.md`: the runbook you paste.
 - `SKILL.md`: the router your AI installs. It loads the reference each task needs.
 
-Live preview: [donatassimkus.com/ai-skills/writing-audit](https://donatassimkus.com/ai-skills/writing-audit)
+Live preview: [donatassimkus.com/ai-skills/fact-check](https://donatassimkus.com/ai-skills/fact-check)
