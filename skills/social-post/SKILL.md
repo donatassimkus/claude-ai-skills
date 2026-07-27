@@ -189,7 +189,7 @@ Visual specs (colors, fonts, dimensions, slide types) live in `references/design
 ### Step 5 + 6: Hashtags, angle variations, platform adapters
 Load `references/platforms.md`. Covers:
 - Hashtags and tags table (per platform).
-- LinkedIn angle variations (5 angles: original, value-first, credit, opinion, numbers, personal).
+- LinkedIn angle variations (original plus 5 angles: value-first, credit, opinion, numbers, personal).
 - Naming convention for variation files.
 - Posting schedule (10-14 days, 21-28 days, 35-42 days for repost variations).
 - Platform adapters (LinkedIn, Twitter/X, Instagram, Facebook, YouTube community, YouTube description).

@@ -1,6 +1,6 @@
 # Field-Sourced: creator monetization
 
-37 tactics from multi-channel YouTube shorts. <!-- Field-sourced from multi-channel YouTube (Money Mind, Leveling Up, Koerner Office), merged 2026-05-31. -->
+47 tactics from multi-channel YouTube shorts. <!-- Field-sourced from multi-channel YouTube (Money Mind, Leveling Up, Koerner Office), merged 2026-05-31. -->
 
 **Related field-sourced categories:** `fs-content-strategy.md`, `fs-brand-guerrilla.md`, `fs-social-growth.md`, `fs-paid-ads.md`
 

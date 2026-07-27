@@ -1,16 +1,26 @@
 #!/usr/bin/env python3
 """
-Banned sentence-pattern scanner.
+Banned word and sentence-pattern scanner. Pass 1 of the anti-AI method.
 
-Reads text from stdin or a file argument, scans against the multi-word
-LLM-tell patterns in the PATTERNS list below, and outputs
-JSON: { "hits": [{pattern, match, sentence, char_offset}, ...], "total": N }.
+Reads text from stdin or a file argument and scans it on two axes:
+  1. Single banned WORDS, loaded from banned-words.txt beside this script.
+  2. Multi-word LLM-tell PATTERNS, from the PATTERNS list below.
 
-Pass 1 of the anti-AI method. Wire it wherever a draft is about to ship:
-a pre-publish gate, a pre-commit hook, a CI step, or by hand on one file.
+Both are needed. The word list catches vocabulary tells ("tapestry",
+"groundbreaking"); the pattern list catches structural cliches a word list
+cannot see ("it's not X, it's Y"). A scan that runs only one axis reports
+clean on text that is obviously machine-written on the other.
 
-The PATTERNS list below is the source of truth. If you mirror it into a
-style guide for readability, update the mirror from here, never the reverse.
+Outputs JSON:
+  { "hits": [{type, pattern, match, sentence, char_offset}, ...],
+    "total": N, "words_checked": N, "patterns_checked": N }
+
+Wire it wherever a draft is about to ship: a pre-publish gate, a pre-commit
+hook, a CI step, or by hand on one file.
+
+banned-words.txt and the PATTERNS list are the two sources of truth. If you
+mirror either into a style guide for readability, update the mirror from
+here, never the reverse.
 
 Usage:
   echo "text" | python3 banned-pattern-scan.py
@@ -19,7 +29,7 @@ Usage:
 
 Exit codes:
   0 = no hits
-  1 = at least one hit (CI / Phase 6 hard-fail)
+  1 = at least one hit (use as a CI / pre-publish hard-fail)
   2 = input error
 """
 from __future__ import annotations
@@ -27,6 +37,10 @@ import json
 import re
 import sys
 from pathlib import Path
+
+# Resolved against THIS script's own directory, not the working directory, so
+# the scan works from anywhere the reader happens to run it.
+WORDS_FILE = Path(__file__).resolve().parent / "banned-words.txt"
 
 # Each pattern is (label, regex). Regex is compiled with IGNORECASE.
 PATTERNS: list[tuple[str, str]] = [
@@ -73,6 +87,25 @@ PATTERNS: list[tuple[str, str]] = [
 ]
 
 
+def load_banned_words() -> list[str]:
+    """Read banned-words.txt beside this script. One term per line, # comments ignored.
+
+    Returns [] and warns on stderr if the file is absent, so a missing word list
+    degrades the scan to patterns-only rather than crashing. Silence would be
+    worse: a clean report from a scan that checked nothing reads as a pass.
+    """
+    if not WORDS_FILE.is_file():
+        print(f"WARNING: {WORDS_FILE.name} not found beside this script. "
+              "Scanning PATTERNS only, no words checked.", file=sys.stderr)
+        return []
+    words = []
+    for line in WORDS_FILE.read_text(encoding="utf-8", errors="replace").splitlines():
+        line = line.strip()
+        if line and not line.startswith("#"):
+            words.append(line)
+    return words
+
+
 def strip_html(text: str) -> str:
     """Remove HTML tags + script/style blocks before scanning."""
     text = re.sub(r"<script\b[^>]*>.*?</script>", " ", text, flags=re.DOTALL | re.IGNORECASE)
@@ -95,18 +128,40 @@ def find_sentence(text: str, offset: int) -> str:
 
 
 def scan(text: str) -> dict:
-    """Scan text against PATTERNS. Returns hit dict."""
+    """Scan text against the word list AND the pattern list. Returns hit dict."""
     cleaned = strip_html(text)
     hits = []
+
+    words = load_banned_words()
+    for word in words:
+        # Word boundaries on both ends, so "foster" does not match "fostered"
+        # and multi-word entries ("at the forefront") match as a phrase.
+        for m in re.finditer(rf"\b{re.escape(word)}\b", cleaned, flags=re.IGNORECASE):
+            hits.append({
+                "type": "word",
+                "pattern": word,
+                "match": m.group(0),
+                "char_offset": m.start(),
+                "sentence": find_sentence(cleaned, m.start()),
+            })
+
     for label, pat in PATTERNS:
         for m in re.finditer(pat, cleaned, flags=re.IGNORECASE):
             hits.append({
+                "type": "pattern",
                 "pattern": label,
                 "match": m.group(0),
                 "char_offset": m.start(),
                 "sentence": find_sentence(cleaned, m.start()),
             })
-    return {"hits": hits, "total": len(hits), "patterns_checked": len(PATTERNS)}
+
+    hits.sort(key=lambda h: h["char_offset"])
+    return {
+        "hits": hits,
+        "total": len(hits),
+        "words_checked": len(words),
+        "patterns_checked": len(PATTERNS),
+    }
 
 
 def main(argv: list[str]) -> int:
@@ -130,7 +185,12 @@ def main(argv: list[str]) -> int:
     print(json.dumps(result, indent=2, ensure_ascii=False))
 
     if not json_only and result["total"] > 0:
-        print(f"\n!! {result['total']} banned-pattern hit(s) across {len(set(h['pattern'] for h in result['hits']))} pattern(s)", file=sys.stderr)
+        w = sum(1 for h in result["hits"] if h["type"] == "word")
+        p = result["total"] - w
+        print(f"\n!! {result['total']} hit(s): {w} banned word(s), {p} banned pattern(s). "
+              f"Checked {result['words_checked']} words and {result['patterns_checked']} patterns.",
+              file=sys.stderr)
+        print("   Fix by REPHRASING the sentence, never by swapping a synonym.", file=sys.stderr)
 
     return 1 if result["total"] > 0 else 0
 

@@ -216,8 +216,8 @@ A piece that is mostly "I" is a diary, not a playbook. The test is whether the r
 **The guard runs both ways, and the second half is the one that actually bites.** Too little first person is the more common failure and the harder one to notice, because a piece with no author in it passes every anti-AI scanner and still reads machine-made. Count it rather than eyeballing it:
 
 ```bash
-python3 scripts/person-density.py <file>            # advisory
-python3 scripts/person-density.py <file> --strict   # publish gate, exits 1 on failure
+python3 <KIT>/scripts/person-density.py <file>            # advisory
+python3 <KIT>/scripts/person-density.py <file> --strict   # publish gate, exits 1 on failure
 ```
 
 It reports the ratio, the sentence-initial share and the longest run, and it fails on both ends: I-stacking, zero first person, a generic opener, and an opening with no author in it.

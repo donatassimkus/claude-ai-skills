@@ -170,7 +170,7 @@ When applying a platform fix during autonomous mode:
 6. **Internal links must hit indexable pages**. Pre-flight check via HTTP 200 + robots check, OR via the project's `seo-pages.json` filter (`is_indexable=true`, page_type NOT IN the excluded list per config).
 7. **The entity-mention rule** is the #1 reason to respect the config. Never invent "featured" picks via a random-order database query.
 
-## The 9 phases
+## The 11 phases
 
 ### Phase 1 — Keyword intel
 - Read the keyword queue from the config's queue folder (CSVs or markdown).

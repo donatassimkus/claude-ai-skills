@@ -17,7 +17,7 @@ The single biggest scaling mistake: applying Stage 8 solutions to Stage 3 proble
 
 ---
 
-## The 9-Stage Scaling Roadmap
+## The 10-Stage Scaling Roadmap
 
 Ten stages total (Stage 0 through Stage 9). Each has a name, headcount range, founder role, main constraint, and graduation milestone. For the full cross-functional Problem/Solution matrix at each stage (Product, Marketing, Sales, Customer Service, IT, Recruiting, HR, Finance), see `references/stage-matrix.md`.
 

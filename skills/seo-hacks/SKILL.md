@@ -1,6 +1,6 @@
 ---
 name: seo-hacks
-description: "White-hat. 152 tactical SEO hacks covering Google SEO, Instagram SEO, YouTube SEO, technical SEO, and backlinks, each with its original source linked. Use for executable SEO tactics and quick wins."
+description: "White-hat. 152 tactical SEO hacks covering Google SEO, Instagram SEO, YouTube SEO, technical SEO, and backlinks, nearly all with their original source linked. Use for executable SEO tactics and quick wins."
 disable-model-invocation: true
 user-invocable: true
 argument-hint: [topic, URL, or "all"]

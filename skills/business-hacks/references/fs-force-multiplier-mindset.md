@@ -1,6 +1,6 @@
 # Field-Sourced: force multiplier mindset
 
-99 tactics from multi-channel YouTube shorts. <!-- Field-sourced from multi-channel YouTube (Money Mind, Leveling Up, Koerner Office), merged 2026-05-31. -->
+<!-- Field-sourced from multi-channel YouTube (Money Mind, Leveling Up, Koerner Office), merged 2026-05-31. -->
 
 **Related field-sourced categories:** `fs-behavioral-economics.md`, `fs-operations-management.md`, `fs-attention-creator-economy.md`, `fs-business-models-arbitrage.md`
 

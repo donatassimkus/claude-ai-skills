@@ -1,6 +1,6 @@
 # Copywriting & Messaging
 
-*7 hacks covering copy frameworks, hook formulas, urgency psychology, LinkedIn bios, AI writing cleanup, AISO/LLM memory tactics, and launch copy.*
+*7 hacks covering copy frameworks, hook formulas, urgency psychology, AI writing cleanup, AISO/LLM memory tactics, and launch copy.*
 
 ---
 

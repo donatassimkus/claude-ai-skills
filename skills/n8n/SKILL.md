@@ -1,6 +1,6 @@
 ---
 name: n8n
-description: n8n workflow design, node configuration, error handling, automation recipes, self-hosted setup, AI agent workflows. Use when asked to build, debug, or optimise n8n automations.
+description: n8n workflow design, node configuration, error handling, automation recipes, AI agent workflows. Use when asked to build, debug, or optimise n8n automations.
 user-invocable: true
 argument-hint: [workflow goal or existing workflow to debug/improve]
 ---

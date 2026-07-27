@@ -51,18 +51,23 @@ Words, sentences, punctuation. Mechanical and cheap, so it runs first and clears
 
 | What | Lives in | Notes |
 |---|---|---|
-| Banned words (49) | `scripts/banned-words.txt` | One term per line. Edit here, nowhere else, so every scanner reads one list. |
+| Banned words (49) | `scripts/banned-words.txt` | One term per line. The scanner reads this file directly, so edit here and nowhere else. |
 | Banned sentence patterns (25) | `scripts/banned-pattern-scan.py`, `PATTERNS` list | Includes 6 negative-parallelism shapes and 8 assistant-register phrases. |
-| Style rules, soft patterns, format rules | your own style guide, if you keep one | Optional. The essentials are inlined in step 3 below, so this skill runs without one. |
+| Style rules, soft patterns, format rules | `references/style-rules.md` | The reading layer: 7 patterns with before-and-after fixes, 10 soft patterns, the positive principles, per-format rules. No scanner covers these. |
+
+**On paths.** Every command below is written `<KIT>/scripts/...`, where `<KIT>` is the absolute path of the folder holding this file. Substitute the real path before running anything; a bare relative path resolves only when the working directory happens to be the kit root, which it will not be.
+
+**Make pass 1 automatic.** Running a scanner by hand means running it when you remember to, which is not when you need it. `hooks/pre-commit-writing-check.sh` turns pass 1 into a gate: it blocks any commit that adds a banned word or pattern to prose, reports pass-2 structure as advisory (structure needs judgement, so it never blocks), and exempts verbatim quoted sources. Install it as a one-line wrapper in `.git/hooks/pre-commit` rather than copying the file there; the header explains why copying breaks it. Everything in this skill works without it, but the difference between a rule you have and a rule that holds is whether something fires without you.
 
 ## Procedure
 
-1. Run the scanner. It is deterministic and catches what reading misses:
+1. Run the scanner. It is deterministic and catches what reading misses. It checks BOTH axes in one pass: the 49 words and the 25 patterns.
    ```bash
-   python3 scripts/banned-pattern-scan.py <file>
+   python3 <KIT>/scripts/banned-pattern-scan.py <file>
    ```
+   The summary line reports both counts ("N banned word(s), N banned pattern(s)"). If it reports 0 words checked, `banned-words.txt` is not sitting beside the script and half the pass is not running.
 2. Fix every hit by **rephrasing the sentence**, never by swapping a synonym. The pattern flags a structural cliche; a synonym leaves the cliche in place.
-3. Apply the baseline style rules: no em dashes, no hype vocabulary, no filler, active voice, one idea per sentence. If you keep your own style guide, apply that too.
+3. Read `references/style-rules.md` and apply it. The scanner covers words and regex-catchable patterns. The rules library covers what judgement has to catch: the soft patterns (transition bloat, question hooks, fake intimacy, symmetrical bullets, recap-and-restate, and five more), the positive principles, and the rules for the format you are writing in.
 4. Check the things a scanner cannot see:
    - **Uniform sentence rhythm.** Real writing varies hard: a three-word sentence next to a thirty-word one. AI holds a steady mid-length everywhere.
    - **Symmetrical structure.** Three bullets of equal length, parallel openings, every section the same shape.
@@ -114,7 +119,7 @@ Acknowledge the reader or the act of writing, sparingly. Once in a piece, not as
 Compare this piece's skeleton against the last two or three in the same channel. The only audit that looks outside the current document, and the one nothing else catches, because each piece passes every other check on its own.
 
 ```bash
-python3 scripts/shape-convergence.py <draft> --against-dir <recent pieces dir>
+python3 <KIT>/scripts/shape-convergence.py <draft> --against-dir <recent pieces dir>
 ```
 
 Scores 0 to 1, flags at 0.85, weighting the opening and closing move because that is the repetition a reader notices first. Exits 1 on a repeat, so it works as a pre-publish gate.
@@ -132,12 +137,14 @@ Move sections. Cut codas. Delete restatements. Section-level surgery, which is w
 ## Step 5: run the structural scanner
 
 ```bash
-python3 scripts/structural-scan.py <file>
+python3 <KIT>/scripts/structural-scan.py <file>
 ```
 
 Advisory by default, exits 0. `--strict` exits 1 when a category reaches two hits, for a pre-publish gate on outward-facing content. Four categories (embodied emotion, stated lesson, vague allusion, tidy closer matched only in the closing paragraphs) plus two metrics (paragraph-length variance, numbers per 100 words). Put `structural-ignore` on a line to suppress a deliberate usage.
 
 The scanner catches roughly half. Cadence, formulaic shape and polished-but-empty filler are visible only to a reader. A clean scan is not a pass.
+
+**Short pieces under-report, and this is the trap.** Several categories need multiple paragraphs before they can fire, and the tidy-closer check only looks at closing paragraphs, which a one-paragraph draft does not have. Measured: a 47-word draft carrying four separate tells reported one; the same content at 99 words across five paragraphs reported two categories over threshold. So on a short social post a clean scan means almost nothing. Read audits 1, 3, 4 and 6 by hand there and treat the scanner as advisory only.
 
 ## Step 6: check for the trap
 
@@ -187,5 +194,5 @@ This skill is self-contained and needs none of the below. They are the passes th
 
 - **A fact-check pass:** claim verification. Runs BEFORE this one, because there is no point polishing a false sentence.
 - **A voice pass:** the personal layer that makes writing sound like a specific author. Runs AFTER this one. The order is load-bearing: this skill REMOVES signal and a voice pass ADDS it, so running voice first means this pass strips the very habits that make the writing theirs.
-- **A style-rules reference:** your own banned-word list, soft patterns and format rules. The essentials are already inlined in pass 1, and `scripts/banned-words.txt` is the editable list this kit ships with.
+- **A style-rules reference:** this kit ships its own at `references/style-rules.md`, with `scripts/banned-words.txt` as the editable word list. Nothing external is needed. If you already keep a house style guide, apply it on top rather than in place of these.
 - **Evidence:** the research this skill is built on is cited inline in "Why both passes exist" and in the header comments of `scripts/structural-scan.py` and `scripts/shape-convergence.py`.

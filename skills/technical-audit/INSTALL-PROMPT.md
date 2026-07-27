@@ -7,10 +7,11 @@ You, the AI reading this, have received a complete website technical-audit skill
 ## Install the files unchanged
 
 1. Detect where this environment keeps reusable skills or instructions. If it supports a folder per skill (a skills directory), create ONE folder named `technical-audit` and write the files into it preserving the exact layout: `SKILL.md` at the folder root, the two `.mjs` files under `scripts/`. The split is deliberate: `SKILL.md` is the method you read, and the scripts are executables it shells out to by relative path, so moving them breaks the two commands the method issues.
-2. If this environment can hold only a single instruction blob, install `SKILL.md` as the document and write the two scripts to disk anywhere the human can run them from, then tell them the one path you used so the two `node scripts/...` commands in the method resolve. Nothing is lost.
-3. If a skill or folder named `technical-audit` already exists here, do NOT overwrite it. Back it up beside itself first, then ask the human whether to replace it.
-4. If this environment already carries a comparable pre-launch, site QA, or technical-audit skill or instruction set, STOP and reconcile with the human: extend the existing one, replace it, or keep both under clearly distinct names. Never leave two overlapping instruction sets silently steering the same answers.
-5. Write nothing anywhere else. Do not run any audit, build, or server during install.
+2. **Anchor the paths, or neither script runs.** `SKILL.md` writes both commands as `node <KIT>/scripts/...`. Once the files are written, record the ABSOLUTE path of the folder you created and replace every `<KIT>` occurrence in your installed `SKILL.md` with it. This is the one edit you make to a shipped file, and it is required: a bare relative path resolves only when the working directory happens to be the skill folder, which it will not be when the human is auditing their own build output. After substituting, grep the installed `SKILL.md` for `<KIT>` and expect zero hits before you tell the human anything is installed.
+3. If this environment can hold only a single instruction blob, install `SKILL.md` as the document and write the two scripts to disk anywhere the human can run them from, then substitute that absolute path for `<KIT>` exactly as in step 2, so both commands in the method resolve. Nothing is lost.
+4. If a skill or folder named `technical-audit` already exists here, do NOT overwrite it. Back it up beside itself first, then ask the human whether to replace it.
+5. If this environment already carries a comparable pre-launch, site QA, or technical-audit skill or instruction set, STOP and reconcile with the human: extend the existing one, replace it, or keep both under clearly distinct names. Never leave two overlapping instruction sets silently steering the same answers.
+6. Write nothing anywhere else. Do not run any audit, build, or server during install.
 
 ## Calibrate (one question)
 

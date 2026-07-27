@@ -10,6 +10,8 @@ Copy [`INSTALL-PROMPT.md`](INSTALL-PROMPT.md) and paste it into your AI agent (C
 
 - `INSTALL-PROMPT.md`: the runbook you paste.
 - `SKILL.md`: the router your AI installs. It loads the reference each task needs.
+- `references/`: the deeper method, loaded on demand.
+- `hooks/pre-commit-writing-check.sh`: shipped with the kit.
 - `scripts/banned-pattern-scan.py`: shipped with the kit.
 - `scripts/banned-words.txt`: shipped with the kit.
 - `scripts/shape-convergence.py`: shipped with the kit.

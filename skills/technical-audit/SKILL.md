@@ -66,7 +66,7 @@ Common causes and fixes: a single long word at a fixed large font (make the font
 
 ### 2. Link + image integrity, meta, noindex
 
-Run `node scripts/audit-build.mjs <output-dir>`. Reports: broken internal links, broken local image sources, missing or duplicate `<title>` / meta description, titles over 60 chars, descriptions over 160, and any pages carrying `noindex`.
+Run `node <KIT>/scripts/audit-build.mjs <output-dir>`. Reports: broken internal links, broken local image sources, missing or duplicate `<title>` / meta description, titles over 60 chars, descriptions over 160, and any pages carrying `noindex`.
 
 ### 3. Sitemap + robots + structured data
 
@@ -91,7 +91,7 @@ Triage every hit: some ("coming soon" on a roadmap feature) are legitimate; inte
 
 ### 6. Old-sitemap parity (rebuilds / migrations only)
 
-Run `node scripts/sitemap-parity.mjs <old-sitemap-url> <output-dir> [redirects.json]`. For every old URL it reports: exists in the new build / covered by a redirect / MISSING. Any MISSING page will 404 after cutover and lose its rankings: add a 301 (or recreate the page) before going live. Obsolete non-page files (e.g. a `.kml`) are acceptable drops, but flag them.
+Run `node <KIT>/scripts/sitemap-parity.mjs <old-sitemap-url> <output-dir> [redirects.json]`. For every old URL it reports: exists in the new build / covered by a redirect / MISSING. Any MISSING page will 404 after cutover and lose its rankings: add a 301 (or recreate the page) before going live. Obsolete non-page files (e.g. a `.kml`) are acceptable drops, but flag them.
 
 ### 7. Interaction, forms & accessibility hygiene
 

@@ -49,13 +49,15 @@ Rules: (a) flip → fetch → revert MUST be ONE command so the post can never b
 - **A.** Server health (checks 1–2)
 - **B.** Content + structure (checks 3–13, 25, 32, 37)
 - **B2.** Component parity vs canonical reference (check 30)
-- **C.** SEO + schema (checks 14–19)
+- **C.** SEO + schema (checks 14–19, 33, 34)
 - **C2.** Sitemap (check 29)
 - **D.** Editorial quality (checks 20–23, 27)
-- **D2.** Featured-entity quality floor (check 28)
+- **D2.** Featured-entity quality floor (checks 28, 36)
 - **E.** Cannibalization (check 24)
+- **E2.** Cross-corpus consistency (checks 31, 35, batch-level)
 - **F.** Topical completeness (check 26)
 - **G.** Visual QA (checks G1–G5, Phase 11 main-thread)
+- **E3.** Periodic corpus-level audit (checks C1–C6, not per-post)
 
 ---
 

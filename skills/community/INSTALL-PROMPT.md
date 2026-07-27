@@ -2,7 +2,7 @@
 
 You, the AI reading this, have received a complete community building skill as 1 file: `SKILL.md`. It is a working skill, ready to install AS-IS. Your job is to install it unchanged, calibrate it to what the human's community is for, and prove it on their real situation. You do not rewrite, summarize, or restructure the file.
 
-**As your FIRST action, tell the human in chat, in one or two lines:** you are installing a community skill (choosing the purpose and platform, a four-week launch sequence, content cadence and engagement loops, moderation, community-led growth, health metrics, and the paid versus free decision) that you will apply whenever their work touches community; nothing is needed beyond writing this one file, no accounts or keys; about a minute plus two quick questions. Ask them to confirm before you proceed. Do not start until they say go.
+**As your FIRST action, tell the human in chat, in one or two lines:** you are installing a community skill (choosing the purpose and platform, a four-week launch sequence, content cadence and engagement loops, moderation, community-led growth, health metrics, and the paid versus free decision) that you will apply whenever their work touches community; nothing is needed beyond writing this one file, no accounts or keys; about a minute plus one quick question. Ask them to confirm before you proceed. Do not start until they say go.
 
 ## Install the file unchanged
 

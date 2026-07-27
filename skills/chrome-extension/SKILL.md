@@ -86,7 +86,7 @@ Only add content scripts if the extension must modify or read pages on other web
 
 Three sizes required: 16px, 48px, 128px. All PNG format.
 
-Generate programmatically with Python if no design tool is available:
+Starting scaffold for generating them in Python if no design tool is available. Complete the draw and PNG-write steps yourself:
 ```python
 import struct, zlib, math
 
